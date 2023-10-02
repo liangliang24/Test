@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         set 
         { 
             _isRunning = value;
-            animator.SetBool("IsRunning", value);
+            animator.SetBool(AnimationStrings.IsRunning, value);
         }
     }
 
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         set
         {
             _isMoving = value;
-            animator.SetBool("IsMoving", value);
+            animator.SetBool(AnimationStrings.IsMoving, value);
         }
     }
 
