@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    
     public float walkSpeed = 5f;
     private Vector2 moveInput;
 
@@ -90,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext context)
     {
+        
         if(context.started)
         {
             IsRunning = true;
@@ -100,6 +102,16 @@ public class PlayerController : MonoBehaviour
             IsRunning = false;
             walkSpeed -= 200;
 
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        
+        if (context.started)
+        {
+            //animator.Play("Player_Attack_1",0);
+            animator.SetTrigger(AnimationStrings.AttackTrigger);
         }
     }
 }

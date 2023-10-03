@@ -174,7 +174,19 @@ MonoBehaviour:
     m_ActionId: 4ed72e3c-04a3-4b21-a7af-5cd34678fe4a
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8403042669269988716}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d3997d3b-42a9-4e94-af0d-e43b5247f9ce
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -350,6 +362,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12646478, y: -0.21679664}
-  m_Size: {x: 1.4448248, y: 2.4204106}
+  m_Offset: {x: -0.052945912, y: -0.20979482}
+  m_Size: {x: 1.1017367, y: 1.8462633}
   m_Direction: 0
