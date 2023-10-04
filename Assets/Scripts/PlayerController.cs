@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
+
     public float walkSpeed = 5f;
     private Vector2 moveInput;
 
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveInput.x * walkSpeed * Time.fixedDeltaTime,
             moveInput.y * walkSpeed * Time.fixedDeltaTime);
 
-
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)

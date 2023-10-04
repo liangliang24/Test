@@ -9,6 +9,13 @@ public class Knight : MonoBehaviour
     public float walkSpeed = 5f;
     Rigidbody2D rb;
 
+    protected bool canWalk = true;
+        
+    public bool CanWalk
+    { 
+        get { return canWalk; } 
+        set { canWalk = value; }
+    }
     [SerializeField]
     GameObject player;
 
@@ -35,11 +42,37 @@ public class Knight : MonoBehaviour
         set { walkDirection = value; }
     }
 
+    public float WalkSpeed
+    { 
+        get { return walkSpeed; } 
+        set {  walkSpeed = value; } 
+    }
     private void FixedUpdate()
     {
-        WalkDirection = player.transform.position - transform.position;
-        //Debug.Log(direction.x + ' ' + direction.y);
-        //Debug.Log(Vector3.Normalize(direction).x + ' ' + Vector3.Normalize(direction).y);
-        rb.velocity = new Vector2(walkSpeed * Vector3.Normalize(WalkDirection).x,walkSpeed * Vector3.Normalize(WalkDirection).y);
+        if (canWalk)
+        {
+            WalkDirection = player.transform.position - transform.position;
+            //Debug.Log(direction.x + ' ' + direction.y);
+            //Debug.Log(Vector3.Normalize(direction).x + ' ' + Vector3.Normalize(direction).y);
+            rb.velocity = new Vector2(walkSpeed * Vector3.Normalize(WalkDirection).x, walkSpeed * Vector3.Normalize(WalkDirection).y);
+        }
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {   
+        Debug.Log(collision.gameObject.name);
+        //if (collision.gameObject.name == "Player")
+        canWalk = false;
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Player")
+        canWalk = false;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        //if (collision.gameObject.name == "Player")
+        canWalk = true;
     }
 }
