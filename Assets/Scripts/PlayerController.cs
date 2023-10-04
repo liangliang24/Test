@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    
+
     public float walkSpeed = 5f;
     private Vector2 moveInput;
 
@@ -16,19 +16,18 @@ public class PlayerController : MonoBehaviour
     private bool _isMoving = false;
 
     [SerializeField]
-    private bool _isRunning = false;    
+    private bool _isRunning = false;
 
     private Rigidbody2D rb;
     Animator animator;
-
     public bool IsRunning
-    {  
-        get 
-        { 
-            return _isRunning; 
+    {
+        get
+        {
+            return _isRunning;
         }
-        set 
-        { 
+        set
+        {
             _isRunning = value;
             animator.SetBool(AnimationStrings.IsRunning, value);
         }
@@ -38,25 +37,28 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        //capsuleCollider = GetComponent<CapsuleCollider2D>();    
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Begin!");
+        //Debug.Log(capsuleCollider.name);
+        Debug.Log(rb.name);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x * walkSpeed * Time.fixedDeltaTime, 
+        rb.velocity = new Vector2(moveInput.x * walkSpeed * Time.fixedDeltaTime,
             moveInput.y * walkSpeed * Time.fixedDeltaTime);
-        
+
 
     }
 
@@ -91,13 +93,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        
-        if(context.started)
+
+        if (context.started)
         {
             IsRunning = true;
             walkSpeed += 200;
         }
-        else if(context.canceled) 
+        else if (context.canceled)
         {
             IsRunning = false;
             walkSpeed -= 200;
@@ -107,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        
+
         if (context.started)
         {
             //animator.Play("Player_Attack_1",0);
