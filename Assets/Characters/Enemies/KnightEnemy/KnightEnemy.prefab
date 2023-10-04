@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2278556722858354162}
   - component: {fileID: 66822706683577022}
   - component: {fileID: 4912884050733696448}
+  - component: {fileID: 7321251606978430457}
   m_Layer: 0
   m_Name: KnightEnemy
   m_TagString: Untagged
@@ -134,5 +135,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b50638c07bedc8248b5c3b4e3718568f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7321251606978430457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238623599305213832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9485e36550b5b45808dcbe26302f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

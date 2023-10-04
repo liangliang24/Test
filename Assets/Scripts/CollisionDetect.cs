@@ -25,4 +25,9 @@ public class CollisionDetect : MonoBehaviour
     {
         Debug.Log(collision.name);
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
+    }
 }
