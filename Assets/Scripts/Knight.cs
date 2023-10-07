@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Knight : MonoBehaviour
+public class Knight : EnemyController
 {
-
     public float walkSpeed = 5f;
     Rigidbody2D rb;
 
@@ -61,18 +61,28 @@ public class Knight : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {   
-        Debug.Log(collision.gameObject.name);
-        //if (collision.gameObject.name == "Player")
+        
+        //Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name == "Player")
         canWalk = false;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
+        
         if (collision.gameObject.name == "Player")
-        canWalk = false;
+        {
+            
+            AttributeComponent otherGOAttributeComponent = collision.gameObject.GetComponent<AttributeComponent>();
+            if (otherGOAttributeComponent != null)
+            {
+                otherGOAttributeComponent.ApplyHealthChanged(this, otherGOAttributeComponent, 10);
+            }
+        }
+        
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         canWalk = true;
     }
 }

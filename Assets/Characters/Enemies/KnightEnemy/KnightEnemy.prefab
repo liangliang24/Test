@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  player: {fileID: 0}
+  player: {fileID: 7111320540981819268, guid: 1d1a53e918a2aee40a3735fe4eb21395, type: 3}
 --- !u!95 &9174234109793717059
 Animator:
   serializedVersion: 5

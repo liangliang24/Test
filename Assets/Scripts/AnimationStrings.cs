@@ -4,4 +4,5 @@ internal class AnimationStrings
     internal static string IsRunning = "IsRunning";
 
     internal static string AttackTrigger = "Attack";
+    internal static string isAlive = "isAlive";
 }

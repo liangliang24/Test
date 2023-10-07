@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : CharacterController
 {
-
+    
 
     public float walkSpeed = 5f;
     private Vector2 moveInput;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool _isRunning = false;
 
+    private AttributeComponent attributeComponent;
     private Rigidbody2D rb;
     Animator animator;
     public bool IsRunning
@@ -38,13 +39,14 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        attributeComponent = GetComponent<AttributeComponent>();
         //capsuleCollider = GetComponent<CapsuleCollider2D>();    
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Begin!");
+        Debug.Log(gameObject.name);
         //Debug.Log(capsuleCollider.name);
         Debug.Log(rb.name);
     }
@@ -59,8 +61,6 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(moveInput.x * walkSpeed * Time.fixedDeltaTime,
             moveInput.y * walkSpeed * Time.fixedDeltaTime);
-
-        
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -116,5 +116,6 @@ public class PlayerController : MonoBehaviour
             //animator.Play("Player_Attack_1",0);
             animator.SetTrigger(AnimationStrings.AttackTrigger);
         }
+        
     }
 }
