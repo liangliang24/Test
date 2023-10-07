@@ -54,7 +54,7 @@ public class AISpawner : MonoBehaviour
             return false;
         }
         temp.TargetPlayer = TargetPlayer;
-        Debug.Log("Spawn Success");
+        //Debug.Log("Spawn Success");
         return true;
     }
 

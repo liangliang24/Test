@@ -8,11 +8,13 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : CharacterController
 {
-    
+    [SerializeField]
+    ProjectileMovementComponent projectile;
 
     public float walkSpeed = 5f;
     private Vector2 moveInput;
 
+    private Vector2 attackRotation = new Vector2(1,0);
     [SerializeField]
     private bool _isMoving = false;
 
@@ -49,6 +51,7 @@ public class PlayerController : CharacterController
         Debug.Log(gameObject.name);
         //Debug.Log(capsuleCollider.name);
         Debug.Log(rb.name);
+        //InvokeRepeating("PrimaryAttack", 1f, 1f);
     }
 
     // Update is called once per frame
@@ -61,6 +64,8 @@ public class PlayerController : CharacterController
     {
         rb.velocity = new Vector2(moveInput.x * walkSpeed * Time.fixedDeltaTime,
             moveInput.y * walkSpeed * Time.fixedDeltaTime);
+        if (moveInput.x!=0 || moveInput.y !=0 ) 
+            attackRotation = moveInput;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -125,7 +130,17 @@ public class PlayerController : CharacterController
 
         if (attributeComp != null)
         {
-            attributeComp.ApplyHealthChanged(this, attributeComp, 100);
+            attributeComp.ApplyHealthChanged(this, attributeComp, 50);
         }
+    }
+
+    void PrimaryAttack()
+    {
+        Debug.Log("GO");
+        Quaternion quaternion = Quaternion.identity;
+        quaternion.x = attackRotation.x;
+        quaternion.y = attackRotation.y;
+        Instantiate(projectile, transform.position, quaternion);
+
     }
 }

@@ -67,35 +67,37 @@ public class Knight : EnemyController
             WalkDirection = TargetPlayer.transform.position - transform.position;
             //Debug.Log(WalkDirection.x + ' ' + WalkDirection.y);
             //Debug.Log(Vector3.Normalize(WalkDirection).x + ' ' + Vector3.Normalize(WalkDirection).y);
-            rb.velocity = new Vector2(walkSpeed * Vector3.Normalize(WalkDirection).x, walkSpeed * Vector3.Normalize(WalkDirection).y);
+            rb.velocity = new Vector2(
+                walkSpeed * Vector3.Normalize(WalkDirection).x * Time.fixedDeltaTime,
+                walkSpeed * Vector3.Normalize(WalkDirection).y * Time.fixedDeltaTime);
         }
         
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {   
-        
+    {
+
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name == "Player")
-        canWalk = false;
+            canWalk = false;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
-        //if (collision.gameObject.name == "Player")
-        //{
-            
-        //    AttributeComponent otherGOAttributeComponent = collision.gameObject.GetComponent<AttributeComponent>();
-        //    if (otherGOAttributeComponent != null)
-        //    {
-        //        otherGOAttributeComponent.ApplyHealthChanged(this, otherGOAttributeComponent, 10);
-        //    }
-        //}
-        
+
+        if (collision.gameObject.name == "Player")
+        {
+
+            AttributeComponent otherGOAttributeComponent = collision.gameObject.GetComponent<AttributeComponent>();
+            if (otherGOAttributeComponent != null)
+            {
+                otherGOAttributeComponent.ApplyHealthChanged(this, otherGOAttributeComponent, 3);
+            }
+        }
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Player")
-        canWalk = true;
+            canWalk = true;
     }
 }

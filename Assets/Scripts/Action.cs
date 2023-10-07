@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Action : MonoBehaviour
 {
+    [SerializeField]
+    public string name;
+    virtual protected void StartAction()
+    {
+
+    }
+
+    virtual protected void StopAction()
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 4445427820673403694}
   - component: {fileID: 6737262310279987667}
   - component: {fileID: 6367400663028128195}
+  - component: {fileID: 6206238395511046603}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -316,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1410658bfe713a4eb6a3bb061e8b57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 3059662002853159841, guid: 1c8b60c4822d0ed4b9bc98562789dc91, type: 3}
   walkSpeed: 200
   _isMoving: 0
   _isRunning: 0
@@ -498,3 +500,16 @@ MonoBehaviour:
   isAlive: 1
   isInvincible: 0
   invincibilityTimer: 0.25
+--- !u!114 &6206238395511046603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7111320540981819268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd98712f27cd9644a90ca8b6752e268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: []

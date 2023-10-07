@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionComponent : MonoBehaviour
+public class Action_Projectile : Action
 {
-    [SerializeField] private Action[] action;
-
     // Start is called before the first frame update
     void Start()
     {

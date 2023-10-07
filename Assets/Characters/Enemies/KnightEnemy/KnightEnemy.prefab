@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9485e36550b5b45808dcbe26302f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2
+  walkSpeed: 50
   TargetPlayer: {fileID: 0}
 --- !u!95 &9174234109793717059
 Animator:
