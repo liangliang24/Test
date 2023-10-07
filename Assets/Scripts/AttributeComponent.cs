@@ -9,11 +9,17 @@ public class EOnHealthChanged : UnityEvent<CharacterController, AttributeCompone
 {
 
 }
+
+public class EOnIsAliveChanged : UnityEvent<bool>
+{
+
+}
 public class AttributeComponent : MonoBehaviour
 {
     Animator animator;
 
     public EOnHealthChanged OnHealthChanged;
+    public EOnIsAliveChanged OnIsAliveChanged;
     [SerializeField]
     private int maxHealth = 100;
     public int MaxHealth
@@ -50,9 +56,14 @@ public class AttributeComponent : MonoBehaviour
             isAlive = value; 
             if (!isAlive)
             {
-                animator.SetBool(AnimationStrings.isAlive, false);
+                if (animator != null)
+                {
+                    animator.SetBool(AnimationStrings.isAlive, false);
+                }
+                
             }
             Debug.Log("isAlive" + value);
+            OnIsAliveChanged.Invoke(isAlive);
         }
     }
 
@@ -61,6 +72,10 @@ public class AttributeComponent : MonoBehaviour
         if (OnHealthChanged == null)
         {
             OnHealthChanged = new EOnHealthChanged();
+        }
+        if (OnIsAliveChanged == null)
+        {
+            OnIsAliveChanged = new EOnIsAliveChanged();
         }
         animator = GetComponent<Animator>();
     }

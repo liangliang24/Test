@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -6,6 +7,7 @@ using UnityEngine;
 
 public class Knight : EnemyController
 {
+    AttributeComponent attributeComponent;
     public float walkSpeed = 5f;
     Rigidbody2D rb;
 
@@ -16,18 +18,28 @@ public class Knight : EnemyController
         get { return canWalk; } 
         set { canWalk = value; }
     }
-    [SerializeField]
-    GameObject player;
+    public GameObject TargetPlayer;
 
     Vector3 walkDirection;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        attributeComponent = GetComponent<AttributeComponent>();
+        
     }
+
+    private void WhenGODie(bool isAlive)
+    {
+        if (!isAlive)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        attributeComponent.OnIsAliveChanged.AddListener(WhenGODie);
     }
 
     // Update is called once per frame
@@ -49,11 +61,12 @@ public class Knight : EnemyController
     }
     private void FixedUpdate()
     {
+        //Debug.Log(canWalk);
         if (canWalk)
         {
-            WalkDirection = player.transform.position - transform.position;
-            //Debug.Log(direction.x + ' ' + direction.y);
-            //Debug.Log(Vector3.Normalize(direction).x + ' ' + Vector3.Normalize(direction).y);
+            WalkDirection = TargetPlayer.transform.position - transform.position;
+            //Debug.Log(WalkDirection.x + ' ' + WalkDirection.y);
+            //Debug.Log(Vector3.Normalize(WalkDirection).x + ' ' + Vector3.Normalize(WalkDirection).y);
             rb.velocity = new Vector2(walkSpeed * Vector3.Normalize(WalkDirection).x, walkSpeed * Vector3.Normalize(WalkDirection).y);
         }
         
@@ -69,15 +82,15 @@ public class Knight : EnemyController
     private void OnCollisionStay2D(Collision2D collision)
     {
         
-        if (collision.gameObject.name == "Player")
-        {
+        //if (collision.gameObject.name == "Player")
+        //{
             
-            AttributeComponent otherGOAttributeComponent = collision.gameObject.GetComponent<AttributeComponent>();
-            if (otherGOAttributeComponent != null)
-            {
-                otherGOAttributeComponent.ApplyHealthChanged(this, otherGOAttributeComponent, 10);
-            }
-        }
+        //    AttributeComponent otherGOAttributeComponent = collision.gameObject.GetComponent<AttributeComponent>();
+        //    if (otherGOAttributeComponent != null)
+        //    {
+        //        otherGOAttributeComponent.ApplyHealthChanged(this, otherGOAttributeComponent, 10);
+        //    }
+        //}
         
     }
     private void OnCollisionExit2D(Collision2D collision)

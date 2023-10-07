@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 66822706683577022}
   - component: {fileID: 7321251606978430457}
   - component: {fileID: 9174234109793717059}
+  - component: {fileID: 9037428039376466437}
   m_Layer: 7
   m_Name: KnightEnemy
   m_TagString: Untagged
@@ -103,7 +104,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -137,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9485e36550b5b45808dcbe26302f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  player: {fileID: 7111320540981819268, guid: 1d1a53e918a2aee40a3735fe4eb21395, type: 3}
+  walkSpeed: 2
+  TargetPlayer: {fileID: 0}
 --- !u!95 &9174234109793717059
 Animator:
   serializedVersion: 5
@@ -160,3 +161,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9037428039376466437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238623599305213832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3c262c260135943826abf6f831197f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  maxHealth: 100
+  health: 100
+  isAlive: 1
+  isInvincible: 0
+  invincibilityTimer: 0.25

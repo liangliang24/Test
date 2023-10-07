@@ -118,4 +118,14 @@ public class PlayerController : CharacterController
         }
         
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        AttributeComponent attributeComp = collision.gameObject.GetComponent<AttributeComponent>(); ;
+
+        if (attributeComp != null)
+        {
+            attributeComp.ApplyHealthChanged(this, attributeComp, 100);
+        }
+    }
 }
