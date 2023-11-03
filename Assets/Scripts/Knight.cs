@@ -76,7 +76,7 @@ public class Knight : EnemyController
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        //Debug.Log("Enemy Enter Collision");
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name == "Player")
             canWalk = false;

@@ -51,7 +51,7 @@ public class PlayerController : CharacterController
         Debug.Log(gameObject.name);
         //Debug.Log(capsuleCollider.name);
         Debug.Log(rb.name);
-        //InvokeRepeating("PrimaryAttack", 1f, 1f);
+        InvokeRepeating("PrimaryAttack", 1f, 1f);
     }
 
     // Update is called once per frame
@@ -136,11 +136,13 @@ public class PlayerController : CharacterController
 
     void PrimaryAttack()
     {
-        Debug.Log("GO");
+        //Debug.Log("GO");
         Quaternion quaternion = Quaternion.identity;
-        quaternion.x = attackRotation.x;
-        quaternion.y = attackRotation.y;
-        Instantiate(projectile, transform.position, quaternion);
-
+        //quaternion.x = attackRotation.x;
+        //quaternion.y = attackRotation.y;
+        
+        ProjectileMovementComponent SpawnedProjectile = Instantiate(projectile, transform.position, quaternion);
+        SpawnedProjectile.RotationX = attackRotation.x;
+        SpawnedProjectile.RotationY = attackRotation.y;
     }
 }

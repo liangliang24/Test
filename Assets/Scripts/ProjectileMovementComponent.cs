@@ -8,6 +8,9 @@ public class ProjectileMovementComponent : MonoBehaviour
     float speed;
 
     Rigidbody2D rb;
+
+    public float RotationX;
+    public float RotationY;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,7 +25,7 @@ public class ProjectileMovementComponent : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(
-            speed * rb.rotation * Time.fixedDeltaTime,
-            speed * rb.rotation * Time.fixedDeltaTime);
+            speed * RotationX * Time.fixedDeltaTime,
+            speed * RotationY * Time.fixedDeltaTime);
     }
 }

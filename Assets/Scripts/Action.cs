@@ -5,7 +5,7 @@ using UnityEngine;
 public class Action : MonoBehaviour
 {
     [SerializeField]
-    public string name;
+    public string ActionName;
     virtual protected void StartAction()
     {
 
