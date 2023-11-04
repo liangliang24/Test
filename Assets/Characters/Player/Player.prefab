@@ -321,6 +321,7 @@ MonoBehaviour:
   walkSpeed: 200
   _isMoving: 0
   _isRunning: 0
+  ActionComp: {fileID: 0}
 --- !u!114 &5063126164293675822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,19 +368,7 @@ MonoBehaviour:
     m_ActionId: 4ed72e3c-04a3-4b21-a7af-5cd34678fe4a
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8403042669269988716}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: d3997d3b-42a9-4e94-af0d-e43b5247f9ce
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -423,19 +412,7 @@ MonoBehaviour:
     m_ActionId: 48fd56f9-5f18-4b31-ae5b-a15820c910b1
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8403042669269988716}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnRun
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 9b350df0-fe7a-4317-8d33-7b09d062003c
     m_ActionName: Player/Run[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
@@ -512,4 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd98712f27cd9644a90ca8b6752e268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: []
+  Owner: {fileID: 0}
+  OwnerRb: {fileID: 0}
+  ActionList: []

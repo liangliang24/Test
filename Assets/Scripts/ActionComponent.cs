@@ -7,7 +7,7 @@ using UnityEngine;
 public class ActionComponent : MonoBehaviour
 {
     public CharacterController Owner;
-    public Rigidbody2D OwnerInfo;
+    public Rigidbody2D OwnerRb;
     [SerializeField] public List<Action> ActionList;
     // Start is called before the first frame update
     private void Awake()
@@ -20,7 +20,7 @@ public class ActionComponent : MonoBehaviour
         foreach (Action action in ActionList)
         {
             action.Instigator = Owner;
-            action.InstigatorInfo = OwnerInfo;
+            action.InstigatorRb = OwnerRb;
         }
         foreach (Action action in ActionList)
         {

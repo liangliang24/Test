@@ -38,8 +38,8 @@ public class Action_Projectile : Action
         //quaternion.y = attackRotation.y;
 
         ProjectileMovementComponent SpawnedProjectile = Instantiate(projectile, Instigator.transform.position, quaternion);
-        SpawnedProjectile.RotationX = InstigatorInfo.velocity.x;
-        SpawnedProjectile.RotationY = InstigatorInfo.velocity.y;
+        SpawnedProjectile.RotationX = InstigatorRb.velocity.x;
+        SpawnedProjectile.RotationY = InstigatorRb.velocity.y;
         if (SpawnedProjectile.RotationX == 0 && SpawnedProjectile.RotationY == 0)
         {
             SpawnedProjectile.RotationX = LastRotationX;

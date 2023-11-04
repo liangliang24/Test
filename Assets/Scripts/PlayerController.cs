@@ -44,7 +44,7 @@ public class PlayerController : CharacterController
         ActionComp = GetComponent<ActionComponent>();
         ActionComp.Owner = this;
 
-        ActionComp.OwnerInfo = rb;
+        ActionComp.OwnerRb = rb;
         //capsuleCollider = GetComponent<CapsuleCollider2D>();    
     }
 
@@ -54,8 +54,6 @@ public class PlayerController : CharacterController
         //Debug.Log(gameObject.name);
         //Debug.Log(capsuleCollider.name);
         //Debug.Log(rb.name);
-        InvokeRepeating("PrimaryAttack", 1f, 1f);
-        Debug.Log(ActionComp.ActionList.Count);
     }
 
     // Update is called once per frame
@@ -104,32 +102,7 @@ public class PlayerController : CharacterController
         }
     }
 
-    public void OnRun(InputAction.CallbackContext context)
-    {
 
-        if (context.started)
-        {
-            IsRunning = true;
-            walkSpeed += 200;
-        }
-        else if (context.canceled)
-        {
-            IsRunning = false;
-            walkSpeed -= 200;
-
-        }
-    }
-
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-
-        if (context.started)
-        {
-            //animator.Play("Player_Attack_1",0);
-            animator.SetTrigger(AnimationStrings.AttackTrigger);
-        }
-        
-    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -139,10 +112,5 @@ public class PlayerController : CharacterController
         {
             attributeComp.ApplyHealthChanged(this, attributeComp, 50);
         }
-    }
-
-    void PrimaryAttack()
-    {
-        
     }
 }

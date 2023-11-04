@@ -18,7 +18,7 @@ public class AISpawner : MonoBehaviour
             Debug.LogError("Please Set TargetPlayer!!!");
 
         //AI = new Knight();
-        InvokeRepeating("SpawnAI", 1, 0.25f);
+        InvokeRepeating("SpawnAI", 1, 0.05f);
         
 
     }
@@ -48,6 +48,8 @@ public class AISpawner : MonoBehaviour
         {
             return false;
         }
+        position.x *= 2;
+        position.y *= 2;
         Knight temp = Instantiate<Knight>(AI, position, Quaternion.identity);
         if (temp == null)
         {

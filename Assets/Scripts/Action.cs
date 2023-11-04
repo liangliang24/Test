@@ -8,7 +8,7 @@ public class Action : MonoBehaviour
     public string ActionName;
 
     public CharacterController Instigator;
-    public Rigidbody2D InstigatorInfo;
+    public Rigidbody2D InstigatorRb;
     virtual public void StartAction(CharacterController instigator)
     {
 
