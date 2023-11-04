@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,6 +18,8 @@ public class PlayerController : CharacterController
     [SerializeField]
     private bool _isRunning = false;
 
+    [SerializeField]
+    private ActionComponent ActionComp;
     private AttributeComponent attributeComponent;
     private Rigidbody2D rb;
     Animator animator;
@@ -42,16 +41,21 @@ public class PlayerController : CharacterController
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         attributeComponent = GetComponent<AttributeComponent>();
+        ActionComp = GetComponent<ActionComponent>();
+        ActionComp.Owner = this;
+
+        ActionComp.OwnerInfo = rb;
         //capsuleCollider = GetComponent<CapsuleCollider2D>();    
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(gameObject.name);
+        //Debug.Log(gameObject.name);
         //Debug.Log(capsuleCollider.name);
-        Debug.Log(rb.name);
+        //Debug.Log(rb.name);
         InvokeRepeating("PrimaryAttack", 1f, 1f);
+        Debug.Log(ActionComp.ActionList.Count);
     }
 
     // Update is called once per frame
@@ -62,7 +66,7 @@ public class PlayerController : CharacterController
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x * walkSpeed * Time.fixedDeltaTime,
+        rb.velocity =new Vector2(moveInput.x * walkSpeed * Time.fixedDeltaTime,
             moveInput.y * walkSpeed * Time.fixedDeltaTime);
         if (moveInput.x!=0 || moveInput.y !=0 ) 
             attackRotation = moveInput;
@@ -82,6 +86,9 @@ public class PlayerController : CharacterController
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
+
+        //Debug.Log(moveInput.x + " " + moveInput.y);
+
     }
 
     public bool IsMoving
@@ -136,13 +143,6 @@ public class PlayerController : CharacterController
 
     void PrimaryAttack()
     {
-        //Debug.Log("GO");
-        Quaternion quaternion = Quaternion.identity;
-        //quaternion.x = attackRotation.x;
-        //quaternion.y = attackRotation.y;
         
-        ProjectileMovementComponent SpawnedProjectile = Instantiate(projectile, transform.position, quaternion);
-        SpawnedProjectile.RotationX = attackRotation.x;
-        SpawnedProjectile.RotationY = attackRotation.y;
     }
 }

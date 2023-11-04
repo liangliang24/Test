@@ -6,12 +6,15 @@ public class Action : MonoBehaviour
 {
     [SerializeField]
     public string ActionName;
-    virtual protected void StartAction()
+
+    public CharacterController Instigator;
+    public Rigidbody2D InstigatorInfo;
+    virtual public void StartAction(CharacterController instigator)
     {
 
     }
 
-    virtual protected void StopAction()
+    virtual public void StopAction()
     {
 
     }

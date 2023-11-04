@@ -24,8 +24,12 @@ public class ProjectileMovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(
-            speed * RotationX * Time.fixedDeltaTime,
-            speed * RotationY * Time.fixedDeltaTime);
+        
+        rb.velocity = (transform.right * RotationX + transform.up * RotationY).normalized * speed * Time.fixedDeltaTime;
+            //new Vector2(
+            //speed * RotationX * Time.fixedDeltaTime,
+            //speed * RotationY * Time.fixedDeltaTime);
+        //rb.angularVelocity = RotationX / RotationY;
+        
     }
 }

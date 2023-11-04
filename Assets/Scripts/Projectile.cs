@@ -37,6 +37,6 @@ public class Projectile : MonoBehaviour
             attributeComp.ApplyHealthChanged(null, attributeComp, 5000);
         }
 
-        DestroyImmediate(this.gameObject);
+        Destroy(this.gameObject);
     }
 }
