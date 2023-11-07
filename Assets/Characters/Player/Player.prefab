@@ -492,3 +492,5 @@ MonoBehaviour:
   Owner: {fileID: 0}
   OwnerRb: {fileID: 0}
   ActionList: []
+  EffectList:
+  - {fileID: 6294271291703281320, guid: f1dbb91e01741df42ae4d00d8a9e484b, type: 3}

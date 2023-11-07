@@ -45,7 +45,7 @@ public class Knight : EnemyController
 
     private void OnHealthChanged(CharacterController arg0, AttributeComponent arg1, int arg2)
     {
-        Debug.Log(arg0 + " Damage " + arg2);
+        //Debug.Log(arg0 + " Damage " + arg2);
     }
 
     // Update is called once per frame

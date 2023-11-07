@@ -50,7 +50,7 @@ public class Action_Projectile : Action
             LastRotationX = SpawnedProjectile.RotationX;
             LastRotationY = SpawnedProjectile.RotationY;
         }
-        Debug.Log("RotationX:" + SpawnedProjectile.RotationX
-            + " RotationY:" + SpawnedProjectile.RotationY);
+        //Debug.Log("RotationX:" + SpawnedProjectile.RotationX
+        //    + " RotationY:" + SpawnedProjectile.RotationY);
     }
 }

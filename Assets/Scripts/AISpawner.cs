@@ -11,12 +11,15 @@ public class AISpawner : MonoBehaviour
     [SerializeField]
     Knight AI;
 
+    [SerializeField]
+    bool Spawned;
     // Start is called before the first frame update
     void Start()
     {
         if (TargetPlayer == null)
             Debug.LogError("Please Set TargetPlayer!!!");
 
+        if (Spawned)
         //AI = new Knight();
         InvokeRepeating("SpawnAI", 1, 0.05f);
         

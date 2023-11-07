@@ -41,7 +41,7 @@ public class AttributeComponent : MonoBehaviour
                 health = 0;
                 IsAlive = false;
             }
-            Debug.Log("health" + value);
+            //Debug.Log("health" + value);
         }
     }
     [SerializeField]
@@ -62,7 +62,7 @@ public class AttributeComponent : MonoBehaviour
                 }
                 
             }
-            Debug.Log("isAlive" + value);
+            //Debug.Log("isAlive" + value);
             OnIsAliveChanged.Invoke(isAlive);
         }
     }
