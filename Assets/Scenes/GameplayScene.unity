@@ -761,6 +761,10 @@ PrefabInstance:
       value: AISpawner
       objectReference: {fileID: 0}
     - target: {fileID: 2563097209961387825, guid: 7dcd84b532f2d6f449a90fe83471b860, type: 3}
+      propertyPath: Spawned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563097209961387825, guid: 7dcd84b532f2d6f449a90fe83471b860, type: 3}
       propertyPath: TargetPlayer
       value: 
       objectReference: {fileID: 196681954}
