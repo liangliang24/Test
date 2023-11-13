@@ -78,11 +78,11 @@ public class PlayerController : CharacterController
 
         if (moveInput.x > 0)
         {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if (moveInput.x < 0)
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
         //Debug.Log(moveInput.x + " " + moveInput.y);

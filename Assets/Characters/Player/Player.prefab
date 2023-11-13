@@ -205,10 +205,10 @@ GameObject:
   - component: {fileID: 7111320540981819267}
   - component: {fileID: 8403042669269988716}
   - component: {fileID: 5063126164293675822}
-  - component: {fileID: 4445427820673403694}
   - component: {fileID: 6737262310279987667}
   - component: {fileID: 6367400663028128195}
   - component: {fileID: 6206238395511046603}
+  - component: {fileID: 4962517409674649006}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -225,8 +225,8 @@ Transform:
   m_GameObject: {fileID: 7111320540981819268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.3518001, y: 1.0856333, z: -0.26119438}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 302482184180285869}
   m_Father: {fileID: 0}
@@ -273,7 +273,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d1bd6e5936b02f348b5ae8dc2bbe5bf9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48fbf8c6efdaaa241a1eb7fdbf07cb9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -420,27 +420,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!95 &4445427820673403694
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7111320540981819268}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 056eac3d5dc9cac44931e938d6f49ed7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!70 &6737262310279987667
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -454,8 +433,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.052945912, y: -0.20979482}
-  m_Size: {x: 1.1017367, y: 1.8462633}
+  m_Offset: {x: -0.065212965, y: -0.22206199}
+  m_Size: {x: 1.6169505, y: 3.1956322}
   m_Direction: 0
 --- !u!114 &6367400663028128195
 MonoBehaviour:
@@ -494,3 +473,24 @@ MonoBehaviour:
   ActionList: []
   EffectList:
   - {fileID: 6294271291703281320, guid: f1dbb91e01741df42ae4d00d8a9e484b, type: 3}
+--- !u!95 &4962517409674649006
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7111320540981819268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 2739085635556287350, guid: 8d5ed1f07fc19dd45aff1c7a357f27f6, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
