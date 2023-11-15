@@ -98,7 +98,7 @@ public class PlayerController : CharacterController
         set
         {
             _isMoving = value;
-            animator.SetBool(AnimationStrings.IsMoving, value);
+            //animator.SetBool(AnimationStrings.IsMoving, value);
         }
     }
 
