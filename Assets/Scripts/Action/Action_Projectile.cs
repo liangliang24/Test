@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Action_Projectile : Action
@@ -34,12 +35,15 @@ public class Action_Projectile : Action
     {
         //Debug.Log("GO");
         Quaternion quaternion = Quaternion.identity;
+            //new Quaternion(0,0,math.atan(InstigatorRb.velocity.y/ InstigatorRb.velocity.x),0);
         //quaternion.x = attackRotation.x;
         //quaternion.y = attackRotation.y;
 
         ProjectileMovementComponent SpawnedProjectile = Instantiate(projectile, Instigator.transform.position, quaternion);
+        
         SpawnedProjectile.RotationX = InstigatorRb.velocity.x;
         SpawnedProjectile.RotationY = InstigatorRb.velocity.y;
+        //SpawnedProjectile.transform.rotation = InstigatorRb.transform.rotation;
         if (SpawnedProjectile.RotationX == 0 && SpawnedProjectile.RotationY == 0)
         {
             SpawnedProjectile.RotationX = LastRotationX;
