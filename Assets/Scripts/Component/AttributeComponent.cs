@@ -54,14 +54,14 @@ public class AttributeComponent : MonoBehaviour
         set 
         { 
             isAlive = value; 
-            if (!isAlive)
-            {
-                if (animator != null)
-                {
-                    animator.SetBool(AnimationStrings.isAlive, false);
-                }
+            //if (!isAlive)
+            //{
+            //    if (animator != null)
+            //    {
+            //        animator.SetBool(AnimationStrings.isAlive, false);
+            //    }
                 
-            }
+            //}
             //Debug.Log("isAlive" + value);
             OnIsAliveChanged.Invoke(isAlive);
         }
