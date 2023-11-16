@@ -19,7 +19,7 @@ public class ProjectileMovementComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localRotation = Quaternion.Euler(0,0,Mathf.Atan(RotationY/RotationX) * Mathf.Rad2Deg + (RotationX > 0?0:180));
+        transform.localRotation = Quaternion.Euler(0,0,Mathf.Atan(RotationY/RotationX) * Mathf.Rad2Deg + (RotationX >= 0?0:180));
 
     }
 

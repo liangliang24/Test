@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1950506366327568661}
   - component: {fileID: -2483517038678368759}
   m_Layer: 8
-  m_Name: Apple
+  m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

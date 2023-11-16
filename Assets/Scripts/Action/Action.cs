@@ -8,6 +8,11 @@ public class Action : MonoBehaviour
     [SerializeField]
     public string ActionName;
 
+    [SerializeField]
+    public float Cooldown;
+
+    public float LastTime;
+    public float CurrentTime;
     public CharacterController Instigator;
     public Rigidbody2D InstigatorRb;
     /*
@@ -17,22 +22,27 @@ public class Action : MonoBehaviour
     public int ActionType;
     virtual public void StartAction(CharacterController instigator)
     {
-
+        //Fire();
     }
 
     virtual public void StopAction()
     {
 
     }
+
+    virtual public void Fire()
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cooldown = 1;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+
     }
 }

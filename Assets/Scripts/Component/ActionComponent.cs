@@ -26,6 +26,7 @@ public class ActionComponent : MonoBehaviour
         }
         foreach (Action action in ActionList)
         {
+            action.CurrentTime = action.LastTime = Time.time;
             action.StartAction(Owner);
         }
         foreach (Action action in EffectList)
@@ -40,9 +41,19 @@ public class ActionComponent : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        foreach (Action action in ActionList)
+        {
+            //Debug.Log(action.Cooldown);
+
+            action.CurrentTime = Time.time;
+            if (action.CurrentTime - action.LastTime >= action.Cooldown)
+            {
+                action.Fire();
+                action.LastTime = action.CurrentTime;
+            }
+        }
     }
 
     public void AddAction(Action action)

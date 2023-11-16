@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7860140531707264179}
   - component: {fileID: -82149897558345050}
   m_Layer: 0
-  m_Name: ProjectileAction
+  m_Name: PistolAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,4 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionName: Projectile
+  Cooldown: 0.5
+  LastTime: 0.85999995
+  CurrentTime: 0.85999995
+  Instigator: {fileID: 0}
+  InstigatorRb: {fileID: 0}
+  ActionType: 0
   projectile: {fileID: 3059662002853159841, guid: 1c8b60c4822d0ed4b9bc98562789dc91, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Action_Projectile : Action
@@ -11,11 +12,11 @@ public class Action_Projectile : Action
     private float LastRotationY = 0;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
         ActionType = 0;
+        Cooldown = 0.5f;
     }
 
     // Update is called once per frame
@@ -28,10 +29,11 @@ public class Action_Projectile : Action
     {
         base.StartAction(instigator);
 
-        InvokeRepeating("Fire", 1f, 0.1f);
+        //InvokeRepeating("Fire", 0f, Cooldown);
     }
 
-    void Fire()
+    
+    public override void Fire()
     {
         //Debug.Log("GO");
         Quaternion quaternion = Quaternion.identity;
